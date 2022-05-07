@@ -1,0 +1,8 @@
+#container {
+    display: flex;
+    width: 200px;
+    height: 200 px;
+    outline-width: 1cm;
+    outline-color: black;
+    background-color: black;
+}
