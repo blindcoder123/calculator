@@ -1,8 +1,37 @@
+body {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 #container {
     display: flex;
     width: 200px;
     height: 200 px;
     outline-width: 1cm;
     outline-color: black;
-    background-color: black;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
 }
+
+#mid {
+    display: flex;
+}
+
+#display {
+    text-align: end;
+    background-color: antiquewhite;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 10px;
+}
+
+#numbers {
+    width: 100px;
+    height: 100px;
+    margin-right: 2px;
+    margin-bottom: 10px;
+}
+
