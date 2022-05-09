@@ -154,5 +154,8 @@ divide.addEventListener('click', () => {
 
 const equals = document.querySelector('#Equals');
 equals.addEventListener('click', () => {
-    operate(opCode, leftVal, rightVal);
+    content.textContent = operate(opCode, leftVal, rightVal);
+    display.append(content);
 })
+
+const content = document.createElement('div');
