@@ -44,174 +44,159 @@ clear.addEventListener('click', () => {
 
 const one = document.querySelector('#One');
 
-one.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }        
+one.addEventListener('click', () => {     
     if(opCode == '') {
-        leftVal = 1;
+        leftVal = Number("" + leftVal + 1);
     } else {
-        rightVal = 1;
+        rightVal = Number("" + rightVal + 1);
     }
     display.append('1');
 });
 
 const two = document.querySelector('#Two');
-two.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
+two.addEventListener('click', () => {  
     if(opCode == '') {
-        leftVal = 2;
+        leftVal = Number("" + leftVal + 2);
     } else {
-        rightVal = 2;
+        rightVal = Number("" + rightVal + 2);
     }
     display.append('2');
 });
 
 const three = document.querySelector('#Three');
-three.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 3;
+three.addEventListener('click', () => { 
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 3);
     } else {
-        rightVal = 3;
+        rightVal = Number("" + rightVal + 3);
     }
     display.append('3');
 });
 
 const four = document.querySelector('#Four');
-four.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 4;
+four.addEventListener('click', () => { 
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 4);
     } else {
-        rightVal = 4;
+        rightVal = Number("" + rightVal + 4);
     }
     display.append('4');
 });
 
 const five = document.querySelector('#Five');
 five.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 5;
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 5);
     } else {
-        rightVal = 5;
+        rightVal = Number("" + rightVal + 5);
     }
     display.append('5');
 });
 
 const six = document.querySelector('#Six');
 six.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 6;
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 6);
     } else {
-        rightVal = 6;
+        rightVal = Number("" + rightVal + 6);
     }
     display.append('6');
 });
 
 const seven = document.querySelector('#Seven');
-seven.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 7;
+seven.addEventListener('click', () => { 
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 7);
     } else {
-        rightVal = 7;
+        rightVal = Number("" + rightVal + 7);
     }
     display.append('7');
 });
 
 const eight = document.querySelector('#Eight');
 eight.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 8;
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 8);
     } else {
-        rightVal = 8;
+        rightVal = Number("" + rightVal + 8);
     }
     display.append('8');
 });
 
 const nine = document.querySelector('#Nine');
 nine.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
-    if(opCode = '') {
-        leftVal = 9;
+    if(opCode == '') {
+        leftVal = Number("" + leftVal + 9);
     } else {
-        rightVal = 9;
+        rightVal = Number("" + rightVal + 9);
     }
-    display.append('19');
+    display.append('9');
 });
 
 const zero = document.querySelector('#Zero');
-zero.addEventListener('click', () => {
-    if(opCode == '+' || opCode == '-' || opCode == '*' || opCode == '/') {
-        while(display.firstChild) {
-            display.removeChild(display.firstChild)
-        }       
-    }   
+zero.addEventListener('click', () => {  
     if(opCode = '') {
-        leftVal = 0;
+        leftVal = Number("" + leftVal + 0);
     } else {
-        rightVal = 0;
+        rightVal = Number("" + rightVal + 0);
     }
     display.append('0');
 });
 
 const add = document.querySelector('#Add');
 add.addEventListener('click', () => {
-    opCode = '+';
-    display.append('+');
+    if(opCode !== '') {
+        content.textContent = operate(opCode, leftVal, rightVal);
+        display.append(content);
+        leftVal = operate(opCode, leftVal, rightVal);
+        rightVal = 0;
+    }
+    else {
+        opCode = '+';
+        display.append('+');
+    }
 });
 
 const subtract = document.querySelector('#Subtract');
 subtract.addEventListener('click', () => {
-    opCode = '-';
+    if(opCode !== '') {
+        content.textContent = operate(opCode, leftVal, rightVal);
+        display.append(content);
+        leftVal = operate(opCode, leftVal, rightVal);
+        rightVal = 0;
+    }
+    else {
+        opCode = '-';
+        display.append('-');
+    }
 });
 
 const multiply = document.querySelector('#Multiply');
 multiply.addEventListener('click', () => {
-    opCode = '*';
+    if(opCode !== '') {
+        content.textContent = operate(opCode, leftVal, rightVal);
+        display.append(content);
+        leftVal = operate(opCode, leftVal, rightVal);
+        rightVal = 0;
+    }
+    else {
+        opCode = '*';
+        display.append('*');
+    }
 });
 
 const divide = document.querySelector('#Divide');
 divide.addEventListener('click', () => {
-    opCode = '/';
+    if(opCode !== '') {
+        content.textContent = operate(opCode, leftVal, rightVal);
+        display.append(content);
+        leftVal = operate(opCode, leftVal, rightVal);
+        rightVal = 0;
+    }
+    else {
+        opCode = '/';
+        display.append('/');
+    }
 });
 
 const equals = document.querySelector('#Equals');
