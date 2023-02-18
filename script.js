@@ -11,7 +11,10 @@ function multiplication(a, b) {
 }
 
 function division(a, b) {
-    return a / b;
+    if(b == 0) {
+        return "Not a Number";
+    }
+    else return a / b;
 }
 
 function operate(s, a, b) {
@@ -30,16 +33,18 @@ function operate(s, a, b) {
     }
 }
 
-let leftVal = 0;
-let rightVal = 0;
+let leftVal = '';
+let rightVal = '';
 let opCode = '';
 
 const clear = document.querySelector('#Clear');
 clear.addEventListener('click', () => {
-    leftVal = 0;
-    rightVal = 0;
+    leftVal = '';
+    rightVal = '';
     opCode = '';
-    display.removeChild(display.firstChild);
+    while(display.firstChild) {
+        display.removeChild(display.firstChild)
+    }   
 })
 
 const one = document.querySelector('#One');
@@ -135,7 +140,7 @@ nine.addEventListener('click', () => {
 
 const zero = document.querySelector('#Zero');
 zero.addEventListener('click', () => {  
-    if(opCode = '') {
+    if(opCode == '') {
         leftVal = Number("" + leftVal + 0);
     } else {
         rightVal = Number("" + rightVal + 0);
@@ -149,7 +154,8 @@ add.addEventListener('click', () => {
         content.textContent = operate(opCode, leftVal, rightVal);
         display.append(content);
         leftVal = operate(opCode, leftVal, rightVal);
-        rightVal = 0;
+        rightVal = '';
+        opCode = '+';
     }
     else {
         opCode = '+';
@@ -163,7 +169,8 @@ subtract.addEventListener('click', () => {
         content.textContent = operate(opCode, leftVal, rightVal);
         display.append(content);
         leftVal = operate(opCode, leftVal, rightVal);
-        rightVal = 0;
+        rightVal = '';
+        opCode = '-';
     }
     else {
         opCode = '-';
@@ -177,7 +184,8 @@ multiply.addEventListener('click', () => {
         content.textContent = operate(opCode, leftVal, rightVal);
         display.append(content);
         leftVal = operate(opCode, leftVal, rightVal);
-        rightVal = 0;
+        rightVal = '';
+        opCode = '*';
     }
     else {
         opCode = '*';
@@ -191,7 +199,8 @@ divide.addEventListener('click', () => {
         content.textContent = operate(opCode, leftVal, rightVal);
         display.append(content);
         leftVal = operate(opCode, leftVal, rightVal);
-        rightVal = 0;
+        rightVal = '';
+        opCode = '/';
     }
     else {
         opCode = '/';
@@ -206,6 +215,9 @@ equals.addEventListener('click', () => {
     }   
     content.textContent = operate(opCode, leftVal, rightVal);
     display.append(content);
+    leftVal = operate(opCode, leftVal, rightVal);
+    rightVal = '';
+    opCode = '';
 })
 
 const content = document.createElement('div');
